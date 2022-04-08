@@ -15,7 +15,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    final text = Provider.of<ThemeProvider>(context).themeMode == Brightness.dark
+    final text = Provider.of<ThemeProvider>(context).themeMode == ThemeMode.dark
         ? 'Dark Theme'
         : 'Light Theme';
     return Scaffold(

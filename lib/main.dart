@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:toggle_theme/pages/home_page.dart';
 import 'package:toggle_theme/theme/toggle_theme.dart';
 
@@ -11,12 +12,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      themeMode: ThemeMode.system, //will take the default system theme
-      theme: ToggleTheme.lightTheme,
-      darkTheme: ToggleTheme.darkTheme,
-       home: const HomePage(),
-    );
+    return ChangeNotifierProvider(
+        create: (context) => ThemeProvider(),
+        builder: (context, _) {
+          final themeProvider = Provider.of<ThemeProvider>(context);
+          return MaterialApp(
+            title: 'Flutter Demo',
+            themeMode: themeProvider.themeMode,
+            theme: ToggleTheme.lightTheme,
+            darkTheme: ToggleTheme.darkTheme,
+            home: const HomePage(),
+          );
+        });
   }
 }

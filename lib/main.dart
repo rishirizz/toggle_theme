@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:toggle_theme/pages/home_page.dart';
 import 'package:toggle_theme/theme/toggle_theme.dart';
 
 void main() {
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system, //will take the default system theme
       theme: ToggleTheme.lightTheme,
       darkTheme: ToggleTheme.darkTheme,
-      // home: const ToggleTheme(),
+       home: const HomePage(),
     );
   }
 }
